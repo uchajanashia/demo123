@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import com.example.demo.dtos.UniversityDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,5 +24,10 @@ public class University extends AppEntity<Long> {
 
     @Column(nullable = true,name = "address")
     private String address;
+
+    public University(UniversityDto dto) {
+        this.name = dto.getName();
+        this.address = dto.getAddress();
+    }
 
 }
